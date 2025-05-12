@@ -2,136 +2,97 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guru Madrasah - Ustadzah Nur</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <title>Website Guru Madrasah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Nunito', sans-serif;
-      background-color: #f9fdfb;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(to right, #4caf50, #66bb6a);
-      color: white;
-      padding: 2.5rem 1rem;
-      text-align: center;
-    }
-    nav {
-      background: #2e7d32;
-      padding: 0.75rem 0;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #c8e6c9;
-    }
-    section {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .card h2 {
-      margin-bottom: 0.75rem;
-      color: #388e3c;
-    }
-    ul {
-      list-style-type: square;
-      padding-left: 1.2rem;
-    }
-    footer {
-      background: #e8f5e9;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-    }
+    body { font-family: 'Poppins', sans-serif; margin: 0; background: #f5f5f5; }
+    header, footer { background: #2E7D32; color: white; padding: 1rem 2rem; text-align: center; }
+    nav a { margin: 0 1rem; color: white; text-decoration: none; }
+    .section { padding: 2rem; background: white; margin: 1rem auto; max-width: 800px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+    .hidden { display: none; }
+    input, button { padding: 0.5rem; margin: 0.5rem 0; width: 100%; max-width: 300px; }
+    button { background: #2E7D32; color: white; border: none; border-radius: 5px; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Ustadzah Nur Fatimah</h1>
-  <p>Guru Bahasa Arab & Akidah Akhlak | MTs Al-Muhajirin</p>
+  <h1>Ustadz Ahmad</h1>
+  <nav>
+    <a href="#" onclick="showSection('home')">Beranda</a>
+    <a href="#" onclick="showSection('login')">Login Siswa</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="#profil">Profil</a>
-  <a href="#jadwal">Jadwal</a>
-  <a href="#materi">Materi</a>
-  <a href="#kontak">Kontak</a>
-</nav>
+<!-- Halaman Utama -->
+<div id="home" class="section">
+  <h2>Selamat Datang di Website Guru Madrasah</h2>
+  <p>"Ilmu adalah cahaya, dan cahaya Allah tidak diberikan kepada pelaku maksiat." — Imam Syafi’i</p>
+  <h3>📚 Materi:</h3>
+  <ul>
+    <li>Fiqih Kelas 9</li>
+    <li>Akidah Akhlak</li>
+  </ul>
+</div>
 
-<section id="profil">
-  <div class="card">
-    <h2>Profil</h2>
-    <p>Saya adalah guru madrasah yang berdedikasi untuk membimbing generasi muda dalam ilmu dan akhlak. Mengajar bukan hanya pekerjaan, tetapi panggilan jiwa untuk membentuk insan beriman, berilmu, dan berakhlak mulia.</p>
-  </div>
-</section>
+<!-- Form Login -->
+<div id="login" class="section hidden">
+  <h2>Login Siswa</h2>
+  <input type="text" id="username" placeholder="Nama Pengguna" required>
+  <input type="password" id="password" placeholder="Kata Sandi" required>
+  <button onclick="login()">Masuk</button>
+  <p id="error" style="color:red;"></p>
+</div>
 
-<section id="jadwal">
-  <div class="card">
-    <h2>Jadwal Mengajar</h2>
-    <ul>
-      <li>Senin: Bahasa Arab (Kelas 7 & 8)</li>
-      <li>Selasa: Akidah Akhlak (Kelas 7)</li>
-      <li>Rabu: Bahasa Arab (Kelas 9)</li>
-      <li>Kamis: Akidah Akhlak (Kelas 8 & 9)</li>
-    </ul>
-  </div>
-</section>
-
-<section id="materi">
-  <div class="card">
-    <h2>Materi Pelajaran</h2>
-    <p>Unduh materi dan tugas terbaru di:</p>
-    <ul>
-      <li><a href="#" target="_blank">Materi Bahasa Arab - Kelas 7 (PDF)</a></li>
-      <li><a href="#" target="_blank">Materi Akidah Akhlak - Kelas 9 (PDF)</a></li>
-    </ul>
-  </div>
-</section>
-
-<section id="kontak">
-  <div class="card">
-    <h2>Kontak</h2>
-    <p>Silakan hubungi saya jika ada pertanyaan:</p>
-    <ul>
-      <li>Email: ustadzahnur@email.com</li>
-      <li>WhatsApp: 0812-3456-7890</li>
-      <li>Instagram: <a href="https://instagram.com/ustadzahnur" target="_blank">@ustadzahnur</a></li>
-    </ul>
-  </div>
-</section>
+<!-- Dashboard Siswa -->
+<div id="dashboard" class="section hidden">
+  <h2>Dashboard Siswa</h2>
+  <p>Selamat datang, <span id="siswaName"></span>!</p>
+  <p>✅ Akses materi, jadwal pengajian, dan artikel eksklusif.</p>
+</div>
 
 <footer>
-  &copy; 2025 Ustadzah Nur | MTs Al-Muhajirin
+  <p>&copy; 2025 Ustadz Ahmad | Website Pribadi Guru Madrasah</p>
 </footer>
+
+<script>
+  const users = { siswa1: "password123", siswa2: "fiqih456" };
+
+  function showSection(id) {
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("dashboard").classList.add("hidden");
+    document.getElementById(id).classList.remove("hidden");
+    if (id === "dashboard") {
+      const user = localStorage.getItem("loggedInUser");
+      document.getElementById("siswaName").textContent = user || "Siswa";
+    }
+  }
+
+  function login() {
+    const u = document.getElementById("username").value;
+    const p = document.getElementById("password").value;
+    if (users[u] && users[u] === p) {
+      localStorage.setItem("loggedInUser", u);
+      showSection("dashboard");
+      document.getElementById("error").textContent = "";
+    } else {
+      document.getElementById("error").textContent = "Username atau password salah.";
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem("loggedInUser");
+    showSection("home");
+  }
+
+  // Cek sesi saat load
+  window.onload = () => {
+    const user = localStorage.getItem("loggedInUser");
+    showSection(user ? "dashboard" : "home");
+  };
+</script>
 
 </body>
 </html>
